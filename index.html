@@ -7,8 +7,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Данные в инвойсе и упаковочном листе должны совпадать</title>
-
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -17,57 +15,37 @@
 
 <div class="page">
 
-<p class="subtitle">
-
-Передвигайте ползунок слева направо и проверяйте,
-какие сведения должны совпадать в двух документах.
-
-</p>
-
-
-
 <div class="layout">
 
 
 
 <div class="document-wrapper">
 
-<div class="document" id="document">
+    <div class="document" id="document">
 
-<img
-src="images/compare.png"
-class="document-image"
-draggable="false"
->
+        <img
+            src="images/compare.png"
+            class="document-image"
+            draggable="false"
+        >
 
-<div id="markers"></div>
+        <div id="markers"></div>
 
-<svg id="connections"></svg>
+        <svg id="connections"></svg>
 
-</div>
+        <div class="slider-track" id="sliderTrack">
 
+            <div class="slider-fill" id="sliderFill"></div>
 
+            <div class="slider-handle" id="sliderHandle">
 
-<div class="slider-track" id="sliderTrack">
+                <div class="handle-circle">➜</div>
 
-<div
-class="slider-fill"
-id="sliderFill">
-</div>
+            </div>
 
-<div
-class="slider-handle"
-id="sliderHandle">
+        </div>
 
-<div class="handle-circle">
-
-➜
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </div>
 
