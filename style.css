@@ -215,7 +215,7 @@ h2{
 
     position:absolute;
 
-    top:0;
+    top:40;
 
     left:0;
 
@@ -237,7 +237,7 @@ h2{
 
     left:50%;
 
-    top:25px;
+    top:40px;
 
     transform:
     translate(-50%,-50%);
