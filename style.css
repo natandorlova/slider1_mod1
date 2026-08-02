@@ -146,13 +146,17 @@ h2{
 
     position:absolute;
 
+    background:transparent;
+
+    border:4px solid;
+
     border-radius:8px;
 
     opacity:0;
 
     transition:.35s ease;
 
-    border:3px solid;
+    pointer-events:none;
 
 }
 
