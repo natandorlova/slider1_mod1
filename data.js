@@ -3,8 +3,6 @@ const data = [
 {
     id:"documents",
 
-    title:"Названия документов",
-
     color:"#dc2626",
 
     outlineOnly:true,
@@ -12,17 +10,17 @@ const data = [
     showAt:5,
 
     invoice:{
-        x:70,
-        y:3,
+        x:80,
+        y:13,
         w:24,
-        h:7
+        h:5
     },
 
     packing:{
-        x:68,
-        y:3,
+        x:80,
+        y:8,
         w:26,
-        h:7
+        h:5
     }
 
 },
@@ -39,17 +37,17 @@ const data = [
     showAt:20,
 
     invoice:{
-        x:4,
-        y:14,
-        w:44,
-        h:11
+        x:1,
+        y:2,
+        w:54,
+        h:16
     },
 
     packing:{
-        x:5,
-        y:14,
-        w:44,
-        h:11
+        x:1,
+        y:1,
+        w:54,
+        h:15
     }
 
 },
