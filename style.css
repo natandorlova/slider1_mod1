@@ -191,11 +191,11 @@ h2{
 
     left:50%;
 
-    top:25px;
+    top:0;
+
+    bottom:0;
 
     transform:translateX(-50%);
-
-    height:78vh;
 
     width:22px;
 
@@ -289,14 +289,30 @@ h2{
 
 .documents-area{
 
-    gap:15px;
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:stretch;
+
+    gap:40px;
+
+    width:100%;
 
 }
 
 
 .document-box{
 
-    width:45vw;
+    position:relative;
+
+    width:42vw;
+
+    max-width:650px;
+
+    height:auto;
 
 }
 
