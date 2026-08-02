@@ -6,58 +6,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Что должно совпадать</title>
+<title>Сравнение документов</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
+
 <body>
+
 
 <div class="page">
 
-    <h2>Передвиньте ползунок</h2>
 
-    <p class="subtitle">
-       
-    </p>
+<h2>Что должно совпадать</h2>
+
+<p class="subtitle">
+Передвиньте ползунок
+</p>
 
 
-    <div class="viewer">
 
-        <div class="document" id="document">
+<div class="compare-area">
 
-            <img
-                src="images/compare.png"
-                class="document-image"
-                draggable="false"
-            >
 
-            <!-- сюда будут добавляться подсветки -->
-            <div id="markers"></div>
 
-            <!-- вертикальный ползунок -->
-            <div
-                class="slider-track"
-                id="sliderTrack"
-            >
+    <div class="document" id="invoiceBox">
 
-                <div
-                    class="slider-fill"
-                    id="sliderFill">
-                </div>
+        <img 
+        src="images/invoice.png"
+        class="document-image">
 
-                <div
-                    class="slider-handle"
-                    id="sliderHandle"
-                >
+        <div id="invoiceMarkers"></div>
 
-                    <div class="handle-circle">
+    </div>
 
-                        ▼
 
-                    </div>
 
+
+    <div class="slider-container">
+
+        <div 
+        class="slider-track"
+        id="sliderTrack">
+
+            <div 
+            class="slider-handle"
+            id="sliderHandle">
+
+                <div class="handle-circle">
+                    ▼
                 </div>
 
             </div>
@@ -66,10 +64,33 @@
 
     </div>
 
+
+
+
+
+    <div class="document" id="packingBox">
+
+        <img 
+        src="images/packing.png"
+        class="document-image">
+
+        <div id="packingMarkers"></div>
+
+    </div>
+
+
+
 </div>
 
+
+</div>
+
+
+
 <script src="data.js"></script>
+
 <script src="script.js"></script>
+
 
 </body>
 
