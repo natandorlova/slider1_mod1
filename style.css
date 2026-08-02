@@ -219,15 +219,23 @@ stroke-dashoffset:0;
 
 .slider-track{
 
-    position:relative;
+    position:absolute;
 
-    width:720px;
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:78%;
 
     height:24px;
 
-    background:#d8e3ec;
+    background:#d9e2ec;
 
     border-radius:20px;
+
+    z-index:100;
 
 }
 
@@ -261,9 +269,7 @@ stroke-dashoffset:0;
 
     transform:translate(-50%,-50%);
 
-    cursor:pointer;
-
-    z-index:50;
+    z-index:101;
 
 }
 
