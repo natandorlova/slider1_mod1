@@ -44,8 +44,19 @@ function createMarker(parent, coords, item){
     marker.style.width = coords.w + "%";
     marker.style.height = coords.h + "%";
 
-    marker.style.background = "transparent";
+    marker.style.background = item.color + "55";
     marker.style.borderColor = item.color;
+
+if(item.outlineOnly){
+
+    marker.style.background = "transparent";
+
+}
+else{
+
+    marker.style.background = item.color + "55";
+
+}
 
     const title = document.createElement("div");
 
