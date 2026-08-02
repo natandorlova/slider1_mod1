@@ -1,161 +1,148 @@
-const markers = document.getElementById("markers");
-
 const sliderTrack = document.getElementById("sliderTrack");
 const sliderHandle = document.getElementById("sliderHandle");
-const sliderFill = document.getElementById("sliderFill");
 
-
-let progress = 0;
+const invoiceMarkers = document.getElementById("invoiceMarkers");
+const packingMarkers = document.getElementById("packingMarkers");
 
 let dragging = false;
+let progress = 0;
 
+// ----------------------
+// создаем подсветки
+// ----------------------
 
+function createMarkers() {
 
-// =====================================
-// СОЗДАЕМ ПОДСВЕТКИ
-// =====================================
+    data.forEach(item => {
 
+        createMarker(
+            invoiceMarkers,
+            item.invoice,
+            item
+        );
 
-function createMarkers(){
-
-
-    fields.forEach(field=>{
-
-
-        field.areas.forEach((area,index)=>{
-
-
-            const marker = document.createElement("div");
-
-
-            marker.className="marker";
-
-
-            marker.id =
-            field.id + "-" + index;
-
-
-
-            marker.style.left =
-            area.x + "%";
-
-
-            marker.style.top =
-            area.y + "%";
-
-
-            marker.style.width =
-            area.w + "%";
-
-
-            marker.style.height =
-            area.h + "%";
-
-
-
-            marker.style.background =
-            hexToRGBA(field.color,.25);
-
-
-
-            marker.style.borderColor =
-            field.color;
-
-
-
-            marker.innerHTML = `
-
-                <div class="marker-title"
-                style="color:${field.color}">
-                
-                    ${field.title}
-
-                </div>
-
-            `;
-
-
-
-            markers.appendChild(marker);
-
-
-
-        });
-
+        createMarker(
+            packingMarkers,
+            item.packing,
+            item
+        );
 
     });
 
+}
+
+function createMarker(parent, coords, item){
+
+    const marker = document.createElement("div");
+
+    marker.className = "marker";
+
+    marker.id = parent.id + "-" + item.id;
+
+    marker.style.left = coords.x + "%";
+    marker.style.top = coords.y + "%";
+    marker.style.width = coords.w + "%";
+    marker.style.height = coords.h + "%";
+
+    marker.style.background = item.color + "55";
+    marker.style.borderColor = item.color;
+
+    const title = document.createElement("div");
+
+    title.className = "marker-title";
+
+    title.innerText = item.title;
+
+    title.style.color = item.color;
+
+    marker.appendChild(title);
+
+    parent.appendChild(marker);
 
 }
 
 
 
-// =====================================
-// ПОЛЗУНОК
-// =====================================
+// ----------------------
+// показать нужные зоны
+// ----------------------
 
+function updateMarkers(){
+
+    data.forEach(item=>{
+
+        const invoice =
+            document.getElementById(
+                "invoiceMarkers-"+item.id
+            );
+
+        const packing =
+            document.getElementById(
+                "packingMarkers-"+item.id
+            );
+
+        if(progress>=item.showAt){
+
+            invoice.classList.add("active");
+            packing.classList.add("active");
+
+        }
+
+        else{
+
+            invoice.classList.remove("active");
+            packing.classList.remove("active");
+
+        }
+
+    });
+
+}
+
+
+
+// ----------------------
+// движение
+// ----------------------
 
 function setProgress(value){
 
-
-    progress =
-    Math.max(
+    progress = Math.max(
         0,
         Math.min(100,value)
     );
 
-
-
     sliderHandle.style.top =
-    progress + "%";
-
-
-
-    sliderFill.style.height =
-    progress + "%";
-
-
+        progress + "%";
 
     updateMarkers();
 
-
 }
-
 
 
 
 function getProgress(clientY){
 
-
     const rect =
-    sliderTrack.getBoundingClientRect();
+        sliderTrack.getBoundingClientRect();
 
-
-
-    let value =
-    ((clientY - rect.top)
-    /
-    rect.height)
-    *
-    100;
-
-
-
-    return value;
-
+    return (
+        (clientY-rect.top)
+        /
+        rect.height
+    )*100;
 
 }
 
 
 
-// =====================================
-// МЫШЬ
-// =====================================
-
+// ----------------------
+// мышь
+// ----------------------
 
 sliderHandle.addEventListener(
 "mousedown",
-function(e){
+e=>{
 
     dragging=true;
 
@@ -167,18 +154,13 @@ function(e){
 
 window.addEventListener(
 "mousemove",
-function(e){
+e=>{
 
-
-    if(!dragging)
-    return;
-
-
+    if(!dragging) return;
 
     setProgress(
         getProgress(e.clientY)
     );
-
 
 });
 
@@ -186,7 +168,7 @@ function(e){
 
 window.addEventListener(
 "mouseup",
-function(){
+()=>{
 
     dragging=false;
 
@@ -194,35 +176,29 @@ function(){
 
 
 
-// =====================================
-// ТЕЛЕФОН
-// =====================================
 
+// ----------------------
+// телефон
+// ----------------------
 
 sliderHandle.addEventListener(
 "touchstart",
-function(e){
+e=>{
 
     dragging=true;
 
     e.preventDefault();
 
-
 },
-{passive:false}
-);
+{passive:false});
 
 
 
 window.addEventListener(
 "touchmove",
-function(e){
+e=>{
 
-
-    if(!dragging)
-    return;
-
-
+    if(!dragging) return;
 
     setProgress(
         getProgress(
@@ -230,16 +206,14 @@ function(e){
         )
     );
 
-
 },
-{passive:false}
-);
+{passive:false});
 
 
 
 window.addEventListener(
 "touchend",
-function(){
+()=>{
 
     dragging=false;
 
@@ -247,99 +221,15 @@ function(){
 
 
 
-// =====================================
-// ПОКАЗ ПОЛЕЙ
-// =====================================
 
-
-function updateMarkers(){
-
-
-    fields.forEach(field=>{
-
-
-        const visible =
-        progress >= field.showAt;
-
-
-
-        field.areas.forEach(
-        (area,index)=>{
-
-
-            const marker =
-            document.getElementById(
-                field.id+"-"+index
-            );
-
-
-
-            if(visible){
-
-                marker.classList.add(
-                    "active"
-                );
-
-            }
-            else{
-
-                marker.classList.remove(
-                    "active"
-                );
-
-            }
-
-
-        });
-
-
-    });
-
-
-}
-
-
-
-// =====================================
-// ЦВЕТ
-// =====================================
-
-
-function hexToRGBA(hex,alpha){
-
-
-    const r =
-    parseInt(hex.substring(1,3),16);
-
-
-    const g =
-    parseInt(hex.substring(3,5),16);
-
-
-    const b =
-    parseInt(hex.substring(5,7),16);
-
-
-
-    return `rgba(${r},${g},${b},${alpha})`;
-
-
-}
-
-
-
-// =====================================
-// СТАРТ
-// =====================================
-
+// ----------------------
+// запуск
+// ----------------------
 
 window.onload=function(){
 
-
     createMarkers();
 
-
     setProgress(0);
-
 
 };
