@@ -4,8 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сравнение документов</title>
 
 <link rel="stylesheet" href="style.css">
 
@@ -15,31 +16,49 @@
 
 <div class="page">
 
-<div class="layout">
+    <h2>Что должно совпадать</h2>
+
+    <p class="subtitle">
+        Передвиньте ползунок
+    </p>
 
 
+    <div class="viewer">
 
-<div class="document-wrapper">
+        <div class="document" id="document">
 
-    <div class="document" id="document">
+            <img
+                src="images/compare.png"
+                class="document-image"
+                draggable="false"
+            >
 
-        <img
-            src="images/compare.png"
-            class="document-image"
-            draggable="false"
-        >
+            <!-- сюда будут добавляться подсветки -->
+            <div id="markers"></div>
 
-        <div id="markers"></div>
+            <!-- вертикальный ползунок -->
+            <div
+                class="slider-track"
+                id="sliderTrack"
+            >
 
-        <svg id="connections"></svg>
+                <div
+                    class="slider-fill"
+                    id="sliderFill">
+                </div>
 
-        <div class="slider-track" id="sliderTrack">
+                <div
+                    class="slider-handle"
+                    id="sliderHandle"
+                >
 
-            <div class="slider-fill" id="sliderFill"></div>
+                    <div class="handle-circle">
 
-            <div class="slider-handle" id="sliderHandle">
+                        ▼
 
-                <div class="handle-circle">➜</div>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -49,30 +68,7 @@
 
 </div>
 
-
-
-<div class="info-panel">
-
-<h2>Что должно совпадать</h2>
-
-<div id="infoContent">
-
-Передвиньте ползунок.
-
-</div>
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-
 <script src="data.js"></script>
-
 <script src="script.js"></script>
 
 </body>
