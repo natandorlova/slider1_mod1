@@ -247,7 +247,19 @@ sliderTrack.style.height = invoice.offsetHeight + "px";
 
 };
 
-window.addEventListener("resize", () => {
+window.addEventListener("load", () => {
+
+    createMarkers();
+
+    const invoice = document.querySelector("#invoiceBox img");
+
+    sliderTrack.style.height = invoice.offsetHeight + "px";
+
+    setProgress(0);
+
+});
+    
+    window.addEventListener("resize", () => {
 
     const invoice = document.querySelector("#invoiceBox img");
 
