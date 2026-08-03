@@ -11,7 +11,7 @@ const data = [
 
     invoice:{
         x:78,
-        y:13,
+        y:12,
         w:20,
         h:5
     },
@@ -61,7 +61,7 @@ const data = [
 
     color:"#46a5ff",
 
-    showAt:40,
+    showAt:30,
 
     invoice:{
         x:1,
@@ -74,7 +74,7 @@ const data = [
         x:1,
         y:14,
         w:70,
-        h:20
+        h:23
     }
 
 },
@@ -88,19 +88,19 @@ const data = [
 
     color:"#ff9800",
 
-    showAt:40,
+    showAt:30,
 
     invoice:{
-        x:76,
+        x:78,
         y:26,
-        w:16,
+        w:26,
         h:6
     },
 
     packing:{
-        x:74,
+        x:75,
         y:28,
-        w:16,
+        w:26,
         h:6
     }
 
@@ -115,19 +115,19 @@ const data = [
 
     color:"#b05cff",
 
-    showAt:70,
+    showAt:50,
 
     invoice:{
-        x:4,
-        y:45,
-        w:90,
+        x:1,
+        y:47,
+        w:70,
         h:17
     },
 
     packing:{
-        x:4,
-        y:45,
-        w:90,
+        x:1,
+        y:55,
+        w:50,
         h:17
     }
 
@@ -142,20 +142,20 @@ const data = [
 
     color:"#16c7c7",
 
-    showAt:70,
+    showAt:50,
 
     invoice:{
-        x:50,
-        y:45,
-        w:44,
-        h:34
+        x:70,
+        y:43,
+        w:17,
+        h:20
     },
 
     packing:{
         x:48,
-        y:45,
-        w:46,
-        h:34
+        y:43,
+        w:15,
+        h:40
     }
 
 }
