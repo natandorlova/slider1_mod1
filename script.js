@@ -16,10 +16,15 @@ function createMarkers() {
 
     data.forEach(item => {
 
+    if(item.invoice){
         createMarker(invoiceMarkers, item.invoice, item);
-        createMarker(packingMarkers, item.packing, item);
+    }
 
-    });
+    if(item.packing){
+        createMarker(packingMarkers, item.packing, item);
+    }
+
+});
 
 }
 
@@ -68,7 +73,7 @@ function createMarker(parent, coords, item) {
 // Показ подсветок
 // ========================================
 
-function updateMarkers() {
+function updateMarkers(){
 
     data.forEach(item => {
 
@@ -82,23 +87,22 @@ function updateMarkers() {
                 "packingMarkers-" + item.id
             );
 
-        if (progress >= item.showAt) {
+        if(progress >= item.showAt){
 
-            invoice.classList.add("active");
-            packing.classList.add("active");
+            if(invoice) invoice.classList.add("active");
+            if(packing) packing.classList.add("active");
 
         } else {
 
-            invoice.classList.remove("active");
-            packing.classList.remove("active");
+            if(invoice) invoice.classList.remove("active");
+            if(packing) packing.classList.remove("active");
 
         }
 
     });
 
 }
-
-
+       
 
 // ========================================
 // Высота трека
