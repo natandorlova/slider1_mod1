@@ -127,7 +127,7 @@ const data = [
     packing:{
         x:1,
         y:56,
-        w:60,
+        w:55,
         h:17
     }
 
@@ -152,8 +152,8 @@ const data = [
     },
 
     packing:{
-        x:61,
-        y:50,
+        x:55,
+        y:52,
         w:12,
         h:33
     }
@@ -169,9 +169,9 @@ const data = [
 
     packing:{
         x:68,
-        y:43,
-        w:15,
-        h:40
+        y:52,
+        w:13,
+        h:33
     }
 
 }
