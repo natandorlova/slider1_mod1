@@ -208,8 +208,6 @@ h2{
 
     height:82vh;
 
-    margin-top:15px;
-
     display:flex;
 
     align-items:center;
@@ -241,6 +239,8 @@ h2{
 .slider-handle{
 
     position:absolute;
+    
+    margin-top:15px;
 
     left:50%;
 
