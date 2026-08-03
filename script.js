@@ -142,7 +142,18 @@ function getProgress(clientY){
     )*100;
 
 }
+function setSliderHeight(){
 
+    const invoice = document.querySelector("#invoiceBox img");
+
+    if(invoice.complete){
+
+        sliderTrack.style.height =
+        invoice.offsetHeight + "px";
+
+    }
+
+}
 
 
 // ----------------------
@@ -239,30 +250,42 @@ window.onload=function(){
 
     createMarkers();
 
+    const invoice = document.querySelector("#invoiceBox img");
+
+    sliderTrack.style.height =
+        invoice.offsetHeight + "px";
+
     setProgress(0);
+
+};
+    
+    window.addEventListener("resize", ()=>{
 
     const invoice = document.querySelector("#invoiceBox img");
 
-sliderTrack.style.height = invoice.offsetHeight + "px";
+    sliderTrack.style.height =
+        invoice.offsetHeight + "px";
 
-};
+});
 
-window.addEventListener("load", () => {
+    window.onload=function(){
 
     createMarkers();
 
     const invoice = document.querySelector("#invoiceBox img");
 
-    sliderTrack.style.height = invoice.offsetHeight + "px";
+    function resizeTrack(){
+
+        sliderTrack.style.height =
+        invoice.offsetHeight + "px";
+
+    }
+
+    resizeTrack();
+
+    invoice.onload = resizeTrack;
 
     setProgress(0);
 
-});
-    
-    window.addEventListener("resize", () => {
-
-    const invoice = document.querySelector("#invoiceBox img");
-
-    sliderTrack.style.height = invoice.offsetHeight + "px";
-
-});    
+};
+ 
