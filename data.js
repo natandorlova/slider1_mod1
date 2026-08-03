@@ -170,7 +170,7 @@ const data = [
     packing:{
         x:68,
         y:52,
-        w:12,
+        w:25,
         h:33
     }
 
