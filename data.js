@@ -7,7 +7,7 @@ const data = [
 
     outlineOnly:true,
 
-    showAt:5,
+    showAt:10,
 
     invoice:{
         x:78,
@@ -34,7 +34,7 @@ const data = [
 
     color:"#57d163",
 
-    showAt:20,
+    showAt:10,
 
     invoice:{
         x:1,
@@ -88,7 +88,7 @@ const data = [
 
     color:"#ff9800",
 
-    showAt:60,
+    showAt:40,
 
     invoice:{
         x:76,
@@ -115,7 +115,7 @@ const data = [
 
     color:"#b05cff",
 
-    showAt:80,
+    showAt:70,
 
     invoice:{
         x:4,
@@ -142,7 +142,7 @@ const data = [
 
     color:"#16c7c7",
 
-    showAt:100,
+    showAt:70,
 
     invoice:{
         x:50,
