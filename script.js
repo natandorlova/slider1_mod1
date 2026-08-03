@@ -56,8 +56,6 @@ else{
 
     marker.style.background = item.color + "55";
 
-}
-
     const title = document.createElement("div");
 
     title.className = "marker-title";
@@ -68,9 +66,9 @@ else{
 
     marker.appendChild(title);
 
-    parent.appendChild(marker);
-
 }
+
+parent.appendChild(marker);
 
 
 
