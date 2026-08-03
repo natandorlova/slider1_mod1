@@ -241,4 +241,16 @@ window.onload=function(){
 
     setProgress(0);
 
+    const invoice = document.querySelector("#invoiceBox img");
+
+sliderTrack.style.height = invoice.offsetHeight + "px";
+
 };
+
+window.addEventListener("resize", () => {
+
+    const invoice = document.querySelector("#invoiceBox img");
+
+    sliderTrack.style.height = invoice.offsetHeight + "px";
+
+});    
