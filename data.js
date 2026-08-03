@@ -120,14 +120,14 @@ const data = [
     invoice:{
         x:1,
         y:46,
-        w:69,
+        w:70,
         h:17
     },
 
     packing:{
         x:1,
         y:56,
-        w:50,
+        w:60,
         h:17
     }
 
@@ -152,10 +152,10 @@ const data = [
     },
 
     packing:{
-        x:68,
-        y:43,
+        x:61,
+        y:50,
         w:15,
-        h:40
+        h:33
     }
         }
  {
