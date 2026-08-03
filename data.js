@@ -10,16 +10,16 @@ const data = [
     showAt:5,
 
     invoice:{
-        x:80,
+        x:79,
         y:13,
-        w:24,
+        w:20,
         h:5
     },
 
     packing:{
-        x:80,
-        y:8,
-        w:26,
+        x:76,
+        y:10,
+        w:20,
         h:5
     }
 
@@ -38,16 +38,16 @@ const data = [
 
     invoice:{
         x:1,
-        y:2,
-        w:54,
-        h:16
+        y:1,
+        w:70,
+        h:14
     },
 
     packing:{
         x:1,
         y:1,
-        w:54,
-        h:15
+        w:70,
+        h:14
     }
 
 },
@@ -64,17 +64,17 @@ const data = [
     showAt:40,
 
     invoice:{
-        x:4,
-        y:28,
-        w:44,
-        h:11
+        x:1,
+        y:16,
+        w:70,
+        h:18
     },
 
     packing:{
-        x:5,
-        y:28,
-        w:44,
-        h:11
+        x:1,
+        y:14,
+        w:70,
+        h:20
     }
 
 },
