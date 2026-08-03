@@ -206,13 +206,11 @@ h2{
 
 .slider-container{
 
-    height:82vh;
-
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
+
+    align-items:flex-start;
 
 }
 
@@ -222,11 +220,7 @@ h2{
 
     position:relative;
 
-    margin-top:20px;
-
     width:16px;
-
-    height:100%;
 
     background:#d9e2ec;
 
