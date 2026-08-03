@@ -7,31 +7,24 @@ const packingMarkers = document.getElementById("packingMarkers");
 let dragging = false;
 let progress = 0;
 
-// ----------------------
-// создаем подсветки
-// ----------------------
+
+// ========================================
+// Создание подсветок
+// ========================================
 
 function createMarkers() {
 
     data.forEach(item => {
 
-        createMarker(
-            invoiceMarkers,
-            item.invoice,
-            item
-        );
-
-        createMarker(
-            packingMarkers,
-            item.packing,
-            item
-        );
+        createMarker(invoiceMarkers, item.invoice, item);
+        createMarker(packingMarkers, item.packing, item);
 
     });
 
 }
 
-function createMarker(parent, coords, item){
+
+function createMarker(parent, coords, item) {
 
     const marker = document.createElement("div");
 
@@ -44,60 +37,57 @@ function createMarker(parent, coords, item){
     marker.style.width = coords.w + "%";
     marker.style.height = coords.h + "%";
 
-    marker.style.background = item.color + "55";
     marker.style.borderColor = item.color;
 
-if(item.outlineOnly){
+    if (item.outlineOnly) {
 
-    marker.style.background = "transparent";
+        marker.style.background = "transparent";
+
+    } else {
+
+        marker.style.background = item.color + "55";
+
+        const title = document.createElement("div");
+
+        title.className = "marker-title";
+
+        title.textContent = item.title;
+
+        title.style.color = item.color;
+
+        marker.appendChild(title);
+
+    }
+
+    parent.appendChild(marker);
 
 }
-else{
-
-    marker.style.background = item.color + "55";
-
-    const title = document.createElement("div");
-
-    title.className = "marker-title";
-
-    title.innerText = item.title;
-
-    title.style.color = item.color;
-
-    marker.appendChild(title);
-
-}
-
-parent.appendChild(marker);
 
 
+// ========================================
+// Показ подсветок
+// ========================================
 
-// ----------------------
-// показать нужные зоны
-// ----------------------
+function updateMarkers() {
 
-function updateMarkers(){
-
-    data.forEach(item=>{
+    data.forEach(item => {
 
         const invoice =
             document.getElementById(
-                "invoiceMarkers-"+item.id
+                "invoiceMarkers-" + item.id
             );
 
         const packing =
             document.getElementById(
-                "packingMarkers-"+item.id
+                "packingMarkers-" + item.id
             );
 
-        if(progress>=item.showAt){
+        if (progress >= item.showAt) {
 
             invoice.classList.add("active");
             packing.classList.add("active");
 
-        }
-
-        else{
+        } else {
 
             invoice.classList.remove("active");
             packing.classList.remove("active");
@@ -110,15 +100,31 @@ function updateMarkers(){
 
 
 
-// ----------------------
-// движение
-// ----------------------
+// ========================================
+// Высота трека
+// ========================================
 
-function setProgress(value){
+function resizeTrack() {
+
+    const invoiceImage =
+        document.querySelector("#invoiceBox img");
+
+    sliderTrack.style.height =
+        invoiceImage.getBoundingClientRect().height + "px";
+
+}
+
+
+
+// ========================================
+// Ползунок
+// ========================================
+
+function setProgress(value) {
 
     progress = Math.max(
         0,
-        Math.min(100,value)
+        Math.min(100, value)
     );
 
     sliderHandle.style.top =
@@ -129,54 +135,36 @@ function setProgress(value){
 }
 
 
-
-function getProgress(clientY){
+function getProgress(clientY) {
 
     const rect =
         sliderTrack.getBoundingClientRect();
 
     return (
-        (clientY-rect.top)
-        /
-        rect.height
-    )*100;
-
-}
-function setSliderHeight(){
-
-    const invoice = document.querySelector("#invoiceBox img");
-
-    if(invoice.complete){
-
-        sliderTrack.style.height =
-        invoice.offsetHeight + "px";
-
-    }
+        (clientY - rect.top)
+        / rect.height
+    ) * 100;
 
 }
 
 
-// ----------------------
-// мышь
-// ----------------------
 
-sliderHandle.addEventListener(
-"mousedown",
-e=>{
+// ========================================
+// Мышь
+// ========================================
 
-    dragging=true;
+sliderHandle.addEventListener("mousedown", e => {
+
+    dragging = true;
 
     e.preventDefault();
 
 });
 
 
+window.addEventListener("mousemove", e => {
 
-window.addEventListener(
-"mousemove",
-e=>{
-
-    if(!dragging) return;
+    if (!dragging) return;
 
     setProgress(
         getProgress(e.clientY)
@@ -185,40 +173,30 @@ e=>{
 });
 
 
+window.addEventListener("mouseup", () => {
 
-window.addEventListener(
-"mouseup",
-()=>{
-
-    dragging=false;
+    dragging = false;
 
 });
 
 
 
+// ========================================
+// Телефон
+// ========================================
 
-// ----------------------
-// телефон
-// ----------------------
+sliderHandle.addEventListener("touchstart", e => {
 
-sliderHandle.addEventListener(
-"touchstart",
-e=>{
-
-    dragging=true;
+    dragging = true;
 
     e.preventDefault();
 
-},
-{passive:false});
+}, { passive: false });
 
 
+window.addEventListener("touchmove", e => {
 
-window.addEventListener(
-"touchmove",
-e=>{
-
-    if(!dragging) return;
+    if (!dragging) return;
 
     setProgress(
         getProgress(
@@ -226,66 +204,39 @@ e=>{
         )
     );
 
-},
-{passive:false});
+}, { passive: false });
 
 
+window.addEventListener("touchend", () => {
 
-window.addEventListener(
-"touchend",
-()=>{
-
-    dragging=false;
+    dragging = false;
 
 });
 
 
 
+// ========================================
+// Загрузка страницы
+// ========================================
 
-// ----------------------
-// запуск
-// ----------------------
-
-window.onload=function(){
-
-    createMarkers();
-
-    const invoice = document.querySelector("#invoiceBox img");
-
-    sliderTrack.style.height =
-        invoice.offsetHeight + "px";
-
-    setProgress(0);
-
-};
-    
-    window.addEventListener("resize", ()=>{
-
-    const invoice = document.querySelector("#invoiceBox img");
-
-    sliderTrack.style.height =
-        invoice.offsetHeight + "px";
-
-});
-
-    window.onload=function(){
+window.addEventListener("load", () => {
 
     createMarkers();
-
-    const invoice = document.querySelector("#invoiceBox img");
-
-    function resizeTrack(){
-
-        sliderTrack.style.height =
-        invoice.offsetHeight + "px";
-
-    }
 
     resizeTrack();
 
-    invoice.onload = resizeTrack;
-
     setProgress(0);
 
-};
- 
+});
+
+
+
+// ========================================
+// Изменение размера окна
+// ========================================
+
+window.addEventListener("resize", () => {
+
+    resizeTrack();
+
+});
