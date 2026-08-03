@@ -222,6 +222,8 @@ h2{
 
     position:relative;
 
+    margin-top:20px;
+
     width:16px;
 
     height:100%;
@@ -239,8 +241,6 @@ h2{
 .slider-handle{
 
     position:absolute;
-    
-    margin-top:20px;
 
     left:50%;
 
