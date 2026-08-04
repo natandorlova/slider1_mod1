@@ -168,7 +168,7 @@ const data = [
     showAt:70,
 
     packing:{
-        x:68,
+        x:69,
         y:52,
         w:30,
         h:33
