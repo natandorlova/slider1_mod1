@@ -114,15 +114,14 @@ h2{
 
     display:block;
 
-     width: 850px;
-    height: auto;
+    width:100%;
 
-    max-width: none;
+    height:auto;
 
-    object-fit: contain;
+    max-height:82vh;
 
-    user-select: none;
-    -webkit-user-drag: none;
+    object-fit:contain;
+
 }
 
 
