@@ -7,7 +7,7 @@ const data = [
 
     outlineOnly:true,
 
-    showAt:5,
+    showAt:3,
 
     invoice:{
         x:78,
