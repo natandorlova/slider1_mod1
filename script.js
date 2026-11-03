@@ -56,7 +56,8 @@ function createMarker(parent, coords, item) {
 
         title.className = "marker-title";
 
-        title.textContent = item.title;
+        // Берём название из соответствующего документа
+        title.textContent = coords.title || item.title || "";
 
         title.style.color = item.color;
 
