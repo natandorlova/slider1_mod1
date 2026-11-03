@@ -153,9 +153,9 @@ const data = [
 
     packing:{
         x:55,
-        y:52,
+        y:53,
         w:14,
-        h:33
+        h:32
     }
         },
  {
