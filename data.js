@@ -61,7 +61,7 @@ const data = [
 
     color:"#46a5ff",
 
-    showAt:30,
+    showAt:20,
 
     invoice:{
         x:1,
@@ -142,7 +142,7 @@ const data = [
 
     color:"#16c7c7",
 
-    showAt:70,
+    showAt:60,
 
     invoice:{
         x:70,
@@ -165,7 +165,7 @@ const data = [
 
     color:"#dc2626",
 
-    showAt:80,
+    showAt:75,
 
     packing:{
         x:69,
