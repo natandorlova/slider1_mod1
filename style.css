@@ -242,7 +242,7 @@ h2{
 
     top:0;
 
-    transform:translate(-50%, calc(-50% + 8px));
+    transform:translate(-50%, calc(-50% + 20px));
 
     cursor:pointer;
 
